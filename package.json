@@ -1,0 +1,15 @@
+{
+  "name": "BePenjualan",
+  "version": "1.0.0",
+  "description": "Backend For Simple Penjualan App",
+  "main": "index.js",
+  "author": "M-Julius",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "platformsh-config": "^2.4.1"
+  }
+}
