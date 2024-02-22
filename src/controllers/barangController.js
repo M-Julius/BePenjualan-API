@@ -82,7 +82,7 @@ const barangController = {
           });
         }
         if (results.length > 0) {
-          res.status(400).json({
+          res.status(200).json({
             status: true,
             message: "Berhasil mendapatkan barang.",
             data: results[0],
