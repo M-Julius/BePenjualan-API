@@ -3,6 +3,31 @@
 Penjualan is backend for this app [FePenjualan-Mobile](https://github.com/M-Julius/FePenjualan-Mobile)
 
 Collection this API on [this](https://drive.google.com/file/d/1aEXdvvIwMixrzhDH-RX96737ahxiSt2C/view?usp=drive_link)
+Berikut adalah struktur koleksi Postman dalam format list tanpa response:
+
+**Barang**
+- Barang
+  - GET `/api/barang`
+- Barang Detail
+  - GET `/api/barang/{id}`
+- Barang Terjual `type: terendah | terbanyak`
+  - GET `/api/barang/terjual/{type}`
+- Create Barang
+  - POST `/api/barang`
+- Edit Barang
+  - PUT `/api/barang/{id}`
+- Delete Barang
+  - DELETE `/api/barang/{id}`
+
+**JenisBarang**
+- Get Jenis Barang
+  - GET `/api/jenis-barang`
+- Create Jenis Barang
+  - POST `/api/jenis-barang`
+- Edit Jenis Barang
+  - PUT `/api/jenis-barang/{id}`
+- Delete Jenis Barang
+  - DELETE `/api/jenis-barang/{id}`
 
 ### Instalation
 you must setup .env file for configuration with db and export ```dbbarang.sql``` to database mysql
