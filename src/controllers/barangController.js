@@ -53,7 +53,7 @@ const barangController = {
       query += " ORDER BY NamaBarang";
     } else if (sortBy === "tanggal") {
       query += " ORDER BY TanggalTransaksi";
-    } 
+    }
 
     connection.query(query, (error, results) => {
       if (error) {
@@ -184,27 +184,26 @@ const barangController = {
     }
     let query = `SELECT b.JenisBarangID, j.JenisBarang, SUM(JumlahTerjual) AS TotalTerjual FROM Barang b JOIN JenisBarang j ON b.JenisBarangID = j.JenisBarangID`
 
-    if(startDate && endDate){
-        query += ` WHERE TanggalTransaksi BETWEEN '${startDate}' AND '${endDate}'`
+    if (startDate && endDate) {
+      query += ` WHERE TanggalTransaksi BETWEEN '${startDate}' AND '${endDate}'`;
     }
-    
-    connection.query(
-      query + ` GROUP BY JenisBarang ORDER BY TotalTerjual ${order} LIMIT 1`,
-      (error, results) => {
-        if (error) {
-            console.log(error);
-            return res.status(400).json({
-                status: false,
-                message: "Gagal mendapatkan data",
-            });
-        };
-        res.json({
-            status: true,
-            message: "Berhasil mendapatkan data",
-            data: results,
+
+    query += ` GROUP BY b.JenisBarangID, j.JenisBarang ORDER BY TotalTerjual ${order} LIMIT 1`;
+
+    connection.query(query, (error, results) => {
+      if (error) {
+        console.log(error);
+        return res.status(400).json({
+          status: false,
+          message: "Gagal mendapatkan data",
         });
       }
-    );
+      res.json({
+        status: true,
+        message: "Berhasil mendapatkan data",
+        data: results,
+      });
+    });
   },
 
 };
